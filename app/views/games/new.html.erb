@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>New game</h1>
+  <div class="d-flex">
+    <% @grid.each do |letter| %>
+    <div class="letter-cards"><%= letter %></div>
+    <% end %>
+  </div>
+</div>
+<br>
+<form action="score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :grid, @grid %>
+  <div class="container">
+    <label for="guessWord" class="form-label">What's the longest word you can find?</label>
+    <div class="d-flex">
+      <input type="text" name="word" class="form-control">
+      <button type="submit" class="btn btn-primary rounded-end">Play</button>
+
+    </div>
+  </div>
+</form>
